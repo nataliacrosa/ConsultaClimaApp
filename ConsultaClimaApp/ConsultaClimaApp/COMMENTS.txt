@@ -1,0 +1,11 @@
+Comentários
+- A arquitetura principal adotada foi a MVVM (Model-View-ViewModel), pois esta permite um código mais organizado e clean e uma reusabilidade dos meus VielModels;
+
+- As bibliotecas de terceiros utilizadas foram:
+	- Newtonsoft.Json: utilizada na deserealização do arquivo json;
+	- sqlite-net-pcl: para conexão com sqlite;
+	- PCLExt.FileStorage: para acessar arquivos locais;
+
+- Se tivesse mais tempo poderia melhorar a organização, layout e simplificar alguns métodos e classes;
+
+- Não foi possível a implementação completa da tela Principal, pois não deu tempo.

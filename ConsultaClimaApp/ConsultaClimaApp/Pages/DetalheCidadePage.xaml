@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ConsultaClimaApp.Pages.DetalheCidadePage">
+
+    <NavigationPage.TitleView>
+        <Label Text="Detalhes"
+               FontAttributes="Bold"
+               FontSize="Title"
+               TextColor="White"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_save.png" Text="Salvar" Clicked="Button_OnClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label x:Name="lblIdCidade"  Text="{Binding IdCidade}" FontAttributes="Bold" FontSize="Large" IsVisible="False"/>
+            </StackLayout>
+            <StackLayout Spacing="2">
+                <Label x:Name="lblNomeCidade"  Text="{Binding NomeCidade}" FontAttributes="Bold" FontSize="Large"/>
+            </StackLayout>
+            <StackLayout Spacing="2">
+                <Label x:Name="lblTemperatura" Text="{Binding Temperatura}" FontAttributes="None" FontSize="Medium"/>
+                <Label x:Name="lblDescricaoTempo" Text="{Binding DescricaoTempo}" FontAttributes="None" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout Spacing="2">
+                <Label Text="Temp. Mínima:" FontAttributes="None" FontSize="Medium"/>
+                <Label Text="{Binding TemperaturaMinima}" FontAttributes="None" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout Spacing="2">
+                <Label Text="Temp. Máxima:" FontAttributes="None" FontSize="Medium"/>
+                <Label Text="{Binding TemperaturaMaxima}" FontAttributes="None" FontSize="Medium"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

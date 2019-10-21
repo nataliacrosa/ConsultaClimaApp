@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ConsultaClimaApp.Pages.CidadeFavoritaPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_search.png" Text="Buscar" Command="{Binding BuscarCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <NavigationPage.TitleView>
+        <Label Text="Clima"
+               FontAttributes="Bold"
+               FontSize="Title"
+               TextColor="White"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20, 35, 20, 20">
+            <ListView RowHeight="70" 
+                      SelectionMode="Single"
+                      x:Name="ListView"
+                      ItemSelected="OnSelection">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="2, 0, 2, 0" Orientation="Vertical">
+                                <Label Text="{Binding NomeCidade}" FontSize="Medium" />
+                                <Label Text="{Binding Clima}" FontSize="Medium" />
+                                <Label  Text="{Binding Temperatura}" FontSize="Medium" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+
+
+    <!--<CollectionView x:Name="ListView"
+                    ItemsSource="{Binding Favoritos}"
+                    SelectionMode="Single"
+                    SelectionChanged="OnSelection">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Horizontal" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="2, 2 ,0 ,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"
+                       Text="{Binding NomeCidade}" />
+                        <Label Grid.Column="1"
+                       Text="{Binding Clima}"  />
+                        <Label Grid.Column="2"
+                       Text="{Binding Temperatura}" />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>-->
+</ContentPage>
