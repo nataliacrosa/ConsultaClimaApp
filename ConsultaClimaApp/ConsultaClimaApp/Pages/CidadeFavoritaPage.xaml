@@ -21,7 +21,7 @@
 
     <ContentPage.Content>
         <StackLayout Margin="20, 35, 20, 20">
-            <ListView RowHeight="70" 
+            <ListView RowHeight="120" 
                       SelectionMode="Single"
                       x:Name="ListView"
                       ItemSelected="OnSelection">

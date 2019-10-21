@@ -35,14 +35,15 @@ namespace ConsultaClimaApp.Pages
                 ListView.ItemsSource = list;
             }
         }
-        async void OnSelection(object sender, SelectionChangedEventArgs e)
+
+        async void OnSelection(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.CurrentSelection == null)
+            if (e.SelectedItem == null)
             {
                 return;
             }
-            var cidade = e.CurrentSelection.FirstOrDefault() as Favorito;
-            var clima = OpenWeatherMapClient.BuscarClima(cidade.IdCidade);
+            var favorito = e.SelectedItem as Favorito;
+            var clima = OpenWeatherMapClient.BuscarClima(favorito.IdCidade);
 
             await Navigation.PushAsync(new DetalheCidadePage(clima));
         }

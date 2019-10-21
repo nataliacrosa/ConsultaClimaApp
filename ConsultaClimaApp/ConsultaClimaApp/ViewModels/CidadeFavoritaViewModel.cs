@@ -20,7 +20,6 @@ namespace ConsultaClimaApp.ViewModels
             {
                 await App.Current.MainPage.DisplayAlert("Olá!", "Você ainda não possui registros nos favoritos", "Ok");
             }
-            //await ListView.ItemsSource = list;
         }
     }
 }

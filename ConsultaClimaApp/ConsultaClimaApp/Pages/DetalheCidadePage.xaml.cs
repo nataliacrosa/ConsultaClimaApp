@@ -21,16 +21,24 @@ namespace ConsultaClimaApp.Pages
             BindingContext = new DetalheCidadeViewModel(clima);
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
+        private async void Button_OnClicked(object sender, EventArgs e)
         {
             var idCidade = lblIdCidade.Text;
             var nomeCidade = lblNomeCidade.Text;
             var temperatura = lblTemperatura.Text;
             var descricao = lblDescricaoTempo.Text;
 
-            var query = $"INSERT INTO Favoritos (IdCidade, NomeCidade, Clima, Temperatura) VALUES ({idCidade}, '{nomeCidade}', '{descricao}', '{temperatura}')";
-            ((App)Application.Current).Conexao.Execute(query);
-            //CarregarInformacoes();
+            var favorito = ((App)Application.Current).Conexao.Query<Clima>($"SELECT * from Favoritos WHERE IdCidade = {idCidade}");
+            if (favorito.Count == 0)
+            {
+                var query = $"INSERT INTO Favoritos (IdCidade, NomeCidade, Clima, Temperatura) VALUES ({idCidade}, '{nomeCidade}', '{descricao}', '{temperatura}')";
+                ((App)Application.Current).Conexao.Execute(query);
+                await Navigation.PushAsync(new CidadeFavoritaPage());
+            }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Olá!", "Você já favoritou essa cidade.", "Ok");
+            }
         }
     }
 }
